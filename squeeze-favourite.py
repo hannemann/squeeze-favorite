@@ -1,3 +1,5 @@
+#!/usr/bin/env python
+
 import sys
 import socket
 import time
@@ -7,10 +9,10 @@ import getopt
 
 class SqueezeFavorite(object):
 
-    def __init__(self, host, port_no=9090):
+    def __init__(self, host, port_no):
         """ initialize """
         self.host = host
-        self.port = port_no
+        self.port = port_no if port_no is not None else 9090
         self.players = {}
         self.favorites = {}
         self.socket = socket.socket(socket.AF_INET, socket.SOCK_STREAM)
@@ -107,6 +109,7 @@ def usage():
     print '\t\t-p\tPort (default 9090)'
     print '\t\t-r\tPlayer name'
     print '\t\t-f\tFavorite name'
+    print '\n'
 
 
 if __name__ == "__main__":
