@@ -33,13 +33,13 @@ class SqueezeFavorite(object):
             print "\t\t" + name
 
     def start_favorite(self, player_name, favorite_name):
-        if self.players[player] and self.favorites[favorite]:
+        try:
             payload = "{} favorites playlist play item_id:{}\n".format(
                 self.players[player_name], self.favorites[favorite_name]
             )
             self.socket.send(payload)
-        else:
-            print "Player {} or favorite {} not available".format(player_name, favorite)
+        except KeyError:
+            print "Player '{}' or favorite '{}' not available".format(player_name, favorite)
 
     def get_players(self):
         payload = "players 1 9999\n"
