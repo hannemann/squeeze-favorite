@@ -53,7 +53,7 @@ class SqueezeFavorite(object):
             self.parse_players(data)
 
     def get_favorites(self):
-        payload = "favorites items 0 9999\n"
+        payload = "favorites items 1 9999\n"
         self.socket.send(payload)
         start = time.time()
         while 1:
