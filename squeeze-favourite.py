@@ -42,7 +42,7 @@ class SqueezeFavorite(object):
             print "Player '{}' or favorite '{}' not available".format(player_name, favorite)
 
     def get_players(self):
-        payload = "players 1 9999\n"
+        payload = "players 0 9999\n"
         self.socket.send(payload)
         start = time.time()
         while 1:
@@ -53,7 +53,7 @@ class SqueezeFavorite(object):
             self.parse_players(data)
 
     def get_favorites(self):
-        payload = "favorites items 1 9999\n"
+        payload = "favorites items 0 9999\n"
         self.socket.send(payload)
         start = time.time()
         while 1:
